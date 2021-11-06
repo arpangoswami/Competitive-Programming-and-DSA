@@ -1,0 +1,4 @@
+Path taken was: 
+Kolkata->Patna->Lucknow->Chennai->Bangalore->Kolkata
+distance was :
+960

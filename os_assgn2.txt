@@ -1,0 +1,106 @@
+Name :- Arpan Goswami
+Class : Information Technology 3rd year 1st sem
+Roll No. :- 001811001049
+
+1) 
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+//Header files for the fork() call
+int main(int argc,char const *argv[]){
+	pid_t var = fork();
+	// one process gets divided into two processes,the parent method is the main process which calls it and the new process is the child process;
+	//fork() takes in no parameters and returns 0 for the child process and non zero positive value for the parent process
+	//Negative var means no id was provided
+	f(var < 0){
+		perror("Fork failed \n");
+		exit(1);
+	}
+	if(var == 0){
+		printf("In child process\n");
+	}else{
+		printf("In parent process\n");
+	}
+}
+
+
+
+2) 
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+int main(int argc,char const *argv[]){
+	pid_t var = fork();
+	if(var < 0){
+		perror("Fork failed \n");
+		exit(1);
+	}
+	if(!var){
+		sleep(10);//This command executes sleep for 10s
+		printf("In Child Process \n");
+	}else{
+		sleep(10);
+		printf("In parent process \n");
+	}
+	return 0;
+}
+
+
+
+
+3) 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+//Header files for the fork() call
+int main(int argc,char const *argv[]){
+	pid_t var = fork();
+	// one process gets divided into two processes,the parent method is the main process which calls it and the new process is the child process;
+	//fork() takes in no parameters and returns 0 for the child process and non zero positive value for the parent process
+
+	//getpid() : get process id, getppid() : get parent process id
+	if(var < 0){
+		perror("Fork failed \n");
+		exit(1);
+	}
+	if(!var){
+		printf("In child process. Child_id: %d, parent_id: %d \n",getpid(),getppid());
+	}else{
+		printf("In parent process. Parent Process_id: %d, child_id: %d \n",getpid(),var);
+	}
+}
+
+
+4)
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+int main(int argc,char const *argv[]){
+	pid_t var = fork();
+	if(var < 0){
+		perror("Fork failed \n");
+		exit(1);
+	}
+	if(!var){
+		printf("In Child Process \n");
+		printf("Contents of the /tmp directory \n");
+		execl("/bin/ls","/bin/ls","/tmp",NULL);
+		/*As command has now been shifted*/
+		printf("This line will now not be executed \n");
+	}else{
+		printf("Inside parent process \n");
+	}
+	return 0;
+}

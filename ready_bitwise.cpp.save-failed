@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Triplet{
+public:
+    long x;
+    long y;
+    long gcd;
+};
+Triplet extendedEuclid(long a,long b){
+    if(b == 0){
+        Triplet ans;
+        ans.gcd = a;
+        ans.x = 1;
+        ans.y = 0;
+        return ans;
+    }
+    //if(a<b) return extendedEuclid(b,a);
+    Triplet ans,smallAns = extendedEuclid(b,a%b);
+    ans.gcd = smallAns.gcd;
+    ans.x = smallAns.y;
+    ans.y = smallAns.x - (a/b)*smallAns.y;
+    return ans;
+}
+long mmInverse(long a,long b = 998244353){
+    long ans = extendedEuclid(a,b).x;
+    if(ans<0){
+        return ans+b;
+    }
+    return ans;
+}
+int main(void){
+    long ans = (mmInverse(2)*2);
+    cout<<ans<<endl;
+}

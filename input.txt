@@ -1,0 +1,13 @@
+5
+Kolkata Patna Lucknow Chennai Bangalore
+Kolkata Patna 100
+Kolkata Lucknow 200
+Kolkata Chennai 250
+Kolkata Bangalore 300
+Patna Lucknow 120
+Patna Chennai 280
+Patna Bangalore 260
+Lucknow Chennai 320
+Lucknow Bangalore 350
+Chennai Bangalore 120
+Kolkata
